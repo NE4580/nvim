@@ -31,6 +31,7 @@ require('lazy').setup({
 	require("plugins.auto_completions"),
 	require("plugins.nerdtree"),
 	require("plugins.tagbar"),
+	require("plugins.cmdline"),
 })
 
 -- Load Plugin Configurations
