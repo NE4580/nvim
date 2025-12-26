@@ -1,19 +1,19 @@
----- Leader Key ----
+--- Leader Key ----
 vim.g.mapleader = " "
 
 ---- Editor Basics ----
-vim.opt.wrap = false       
-vim.opt.number = true      
-vim.opt.showtabline = 2    
-vim.opt.mouse = 'a'        
+vim.opt.wrap = false
+vim.opt.number = true
+vim.opt.showtabline = 2
+vim.opt.mouse = 'a'
 vim.opt.termguicolors = true
-vim.opt.cul = true   
+vim.opt.cul = true
 
 ---- Indentation ----
-vim.opt.tabstop = 2        
-vim.opt.shiftwidth = 2     
-vim.opt.expandtab = false  
-vim.opt.smartindent = true  
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = false
+vim.opt.smartindent = true
 
 -- Initialize Lazy.nvim
 local lazypath = vim.fn.stdpath("config") .. "/lua/lazy"
@@ -24,5 +24,15 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugin Setup
 require('lazy').setup({
-
+	require("plugins.lsp"),
+	require("plugins.nerdtree"),
+	require("plugins.lualine"),
+	require("plugins.tagbar"),
+	require("plugins.utils"),
 })
+
+-- Set Colorscheme
+vim.cmd([[colorscheme catppuccin]])
+
+-- Load mappings
+require('keymaps.mappings')
