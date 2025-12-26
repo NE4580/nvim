@@ -24,15 +24,18 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugin Setup
 require('lazy').setup({
-	require("plugins.lsp"),
-	require("plugins.nerdtree"),
 	require("plugins.lualine"),
-	require("plugins.tagbar"),
+	require("plugins.notify"),
+	require("plugins.lsp"),
 	require("plugins.utils"),
+	require("plugins.auto_completions"),
+	require("plugins.nerdtree"),
+	require("plugins.tagbar"),
 })
 
--- Set Colorscheme
-vim.cmd([[colorscheme catppuccin]])
+-- Load Plugin Configurations
+require("configs.suggestions")
+require("configs.autocmds")
 
 -- Load mappings
 require('keymaps.mappings')
