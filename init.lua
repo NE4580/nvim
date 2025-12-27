@@ -40,3 +40,7 @@ require("configs.autocmds")
 
 -- Load mappings
 require('keymaps.mappings')
+
+
+-- Load the CMake workspace module && Set up key mapping for wsm
+require("configs.wsm-cfg")

@@ -33,8 +33,8 @@
 
 ### 8. NERDTree Mappings
 - **`<leader>n`**: Toggle file explorer
-- **`<leader>nf`**: Reveal current file
-- **`<leader>r`**: Refresh explorer
+- **`<leader>N`**: Reveal current file
+- **`<leader>R`**: Refresh explorer
 
 ### 9. Fswitch Mappings
 - **`<leader>ss`**: Switch header/source
@@ -60,8 +60,14 @@
 - **`<leader>df`**: Focus on Diffview files
 - **`<leader>dh`**: Diffview file history
 
-### 13. General Mapping
-- **`<C-c>`**: Quit (Close current window)
+### 13. LSP Mapping
+- **`<leader>rn`**: Rename symbol
+- **`<leader>gd`**: Jump to definition
+- **`<leader>gr`**: Show symbol reference
+- **`<leader>ca`**: Code action
+
+### 13. Extra Mapping
+- **`<leader>cw`**: CMake custom workspace setup script
 
 ## FIXING fzf ERROR message
     $ cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
