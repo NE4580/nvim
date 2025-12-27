@@ -51,11 +51,22 @@ cmp.setup({
 			winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
 			col_offset = 0,  -- Adjust if needed
 			side_padding = 1,
-			max_width = 64,  -- Change to your desired width
-			min_width = 32,   -- Change to your desired minimum width
+			max_width = 32,  -- Change to your desired width
+			min_width = 16,   -- Change to your desired minimum width
 		},
-		documentation = {
-			border = 'single',  -- or 'rounded' for a softer look
-		},
+		documentation = { border = 'rounded', },  -- or 'single'
+
+		-- commadline completions
+		cmp.setup.cmdline(':', {
+			--mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{ name = 'cmdline' }, -- use cmp for cmdline completions
+				{ name = 'path' }, -- path completions
+			}
+		}),
+
+		-- commadline completions for '/' and '?' (search)
+		cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' }, }}),
+		cmp.setup.cmdline('?', { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' }, }})
 	},
 })
