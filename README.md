@@ -1,4 +1,4 @@
-### Install Node.js and npm
+### Install Node.JS and Npm
    ```bash
    sudo apt update 
    sudo apt install nodejs npm 
@@ -21,22 +21,22 @@
 ### 4. Terminal
 - **`<F5>`**: Toggle terminal
 
-### 5. Protodef
+### 5. `Protodef`
 - **`<leader>,PP`**: Generate prototypes
 - **`<leader>,PN`**: Generate prototypes (no namespace)
 
-### 6. Tagbar
+### 6. `Tagbar`
 - **`<leader>sl`**: Toggle Tagbar
 
 ### 7. Auto-Pairs Toggle
 - **`<F8>`**: Toggle auto-pairs
 
-### 8. NERDTree Mappings
+### 8.`NERDTree`Mappings
 - **`<leader>n`**: Toggle file explorer
 - **`<leader>N`**: Reveal current file
 - **`<leader>R`**: Refresh explorer
 
-### 9. Fswitch Mappings
+### 9. `Fswitch`Mappings
 - **`<leader>ss`**: Switch header/source
 - **`<leader>sh`**: Switch header/source (split)
 
@@ -69,19 +69,20 @@
 ### 13. Extra Mapping
 - **`<leader>cw`**: CMake custom workspace setup script
 
-## FIXING fzf ERROR message
+## INSTALLATION GUIDE for DEBIAN-BASED DISTROS
+
+## FIXING `Fzf` ERROR Message
     $ cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
     $ make
 
-## VIMDOC FIX
+## `VIMDOC` FIX & Markdown
  in a neovim cmd
-    :TSInstall vimdoc
+    `:TSInstall vimdoc`
+    `:TSInstall markdown`
+    `:MasonInstall harper-ls`
 
-Since frecency requires SQLite to keep track of usage statistics, you need to install SQLite first. Make sure you have it installed on your system.
+Since `frecency` requires SQLite to keep track of usage statistics, you `need to` install SQLite first. Make sure you have it installed on your system.
 You can typically install SQLite using your package manager:
 
     For Debian/Ubuntu:
         $ sudo apt install sqlite3
-
-## Installation Guide for Debian-based Distros
-

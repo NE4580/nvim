@@ -6,7 +6,7 @@ local cmp = require('cmp')
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			-- Use LuaSnip as the snippet engine
+			-- Use `LuaSnip` as the snippet engine
 			require('luasnip').lsp_expand(args.body)
 		end,
 	},
@@ -33,21 +33,12 @@ cmp.setup({
 		['<C-e>'] = cmp.mapping.close(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
 	},
-	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'buffer' },
-		{ name = 'path' },
-		{ name = 'luasnip' },
-		{ name = 'nvim_lua' },
-	},
+	sources = { { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' }, { name = 'luasnip' }, { name = 'nvim_lua' }, },
 	-- Customize the popup appearance
 	window = {
-		completion = {
+		completion = { { completeopt = "menu, menuone, noinsert", },
 			-- Border style (rounded corners)
-			border = {
-				{ '╭', 'FloatBorder' }, { '─', 'FloatBorder' }, { '╮', 'FloatBorder' }, { '│', 'FloatBorder' },
-				{ '╯', 'FloatBorder' }, { '─', 'FloatBorder' }, { '╰', 'FloatBorder' }, { '│', 'FloatBorder' },
-			},
+			border = { { '╭', 'FloatBorder' }, { '─', 'FloatBorder' }, { '╮', 'FloatBorder' }, { '│', 'FloatBorder' }, { '╯', 'FloatBorder' }, { '─', 'FloatBorder' }, { '╰', 'FloatBorder' }, { '│', 'FloatBorder' }, },
 			winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
 			col_offset = 0,  -- Adjust if needed
 			side_padding = 1,
@@ -55,18 +46,21 @@ cmp.setup({
 			min_width = 16,   -- Change to your desired minimum width
 		},
 		documentation = { border = 'rounded', },  -- or 'single'
-
-		-- commadline completions
+		-- command line completions
 		cmp.setup.cmdline(':', {
-			--mapping = cmp.mapping.preset.cmdline(),
+			-- mapping = cmp.mapping.preset.cmdline(),
 			sources = {
 				{ name = 'cmdline' }, -- use cmp for cmdline completions
 				{ name = 'path' }, -- path completions
 			}
 		}),
-
-		-- commadline completions for '/' and '?' (search)
+		-- commad line completions for '/' and '?' (search)
 		cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' }, }}),
 		cmp.setup.cmdline('?', { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' }, }})
 	},
+})
+
+local neodev = require("neodev")
+neodev.setup({
+	signature_help = false,
 })

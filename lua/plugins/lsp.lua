@@ -16,18 +16,16 @@ return{
 	},
 
 	{ 'neovim/nvim-lspconfig', after = 'mason-lspconfig.nvim', -- LSP configurations
+		event = "VimEnter",
 		config = function()
-				local lspconfig = require('lspconfig')
-				vim.diagnostic.config({
+			vim.lsp.handlers["textDocument/signatureHelp"] = nil
+			vim.diagnostic.config({
 				virtual_text = false,
 				underline = true,
 				signs = true,
 				serverity_sort = true,
 				update_in_insert = false,
-				float = {
-					border = "rounded",
-					source = "always",
-				},
+				float = { border = "rounded", source = "always", },
 			})
 			local servers = { 'lua_ls', 'clangd', 'pyright', 'bashls', 'html', 'cssls' } -- Add the language servers you need
 			for _, server in ipairs(servers) do
@@ -35,18 +33,20 @@ return{
 			end
 		end
 	},
-
-	-- Treesitter configurations
+--	{ "ray-x/lsp_signature.nvim", config = function ()
+--		require("lsp_signature").setup({
+--			bind = true,
+--			handler_opts = { border = "rounded" },
+--		})
+--	end
+--	},
+	-- Tree-sitter configurations
 	{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', -- Automatically update parsers during installation
     config = function()
         require('nvim-treesitter.config').setup {
-            ensure_installed = "maintained", -- Install all maintained parsers
-            highlight = {
-                enable = true, -- Enable highlighting
-            },
-            autopairs = {
-                enable = true, -- Enable automatic pairs for parentheses, etc.
-            }
+            ensure_installed = {"maintained", "markdown", "vimdoc" }, -- Install all maintained parsers
+            highlight = { enable = true, }, -- Enable highlighting
+            autopairs = { enable = true, } -- Enable automatic pairs for parentheses, etc.
         }
     end
 	},

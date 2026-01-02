@@ -41,4 +41,4 @@ vim.api.nvim_create_autocmd('CursorHold', {
 })
 --------------------------------------------------------------------------------------------------------------
 
- vim.opt.updatetime = 1000 --delay in ms
+ vim.opt.updatetime = 2000 --delay in ms

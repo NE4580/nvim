@@ -1,3 +1,4 @@
+vim.lsp.handlers["textDocument/signatureHelp"] = nil
 --- Leader Key ----
 vim.g.mapleader = " "
 
@@ -18,7 +19,7 @@ vim.opt.smartindent = true
 -- Initialize Lazy.nvim
 local lazypath = vim.fn.stdpath("config") .. "/lua/lazy"
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", lazypath })
+	vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", lazypath })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -44,3 +45,9 @@ require('keymaps.mappings')
 
 -- Load the CMake workspace module && Set up key mapping for wsm
 require("configs.wsm-cfg")
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function ()
+		vim.lsp.handlers['textDocument/signatureHelp'] = nil
+	end
+})
