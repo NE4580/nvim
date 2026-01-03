@@ -43,6 +43,7 @@
 ### 10. Telescope Mappings
 - **`<leader>te`**: File Browser
 - **`<leader>tn`**: Noice
+- **`<leader>tf`**: Frecency
 - **`<leader>th`**: Help tags
 - **`<leader>ff`**: Find files
 - **`<leader>fl`**: Live grep
