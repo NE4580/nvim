@@ -1,4 +1,4 @@
-local cmake_workspace = require("custom_wsm.cmake-wsm")
+local cmake_workspace = require("core.custom.cmake-wsm")
 cmake_workspace.setup({ default_cpp_standard = 17,default_c_standard = 11, })  -- or 20 if you prefer 
 
 vim.keymap.set("n", "<leader>cw", function()

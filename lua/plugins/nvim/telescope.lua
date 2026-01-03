@@ -1,10 +1,13 @@
 return {
-	{ 'nvim-telescope/telescope.nvim', dependencies = {
+	{ 'nvim-telescope/telescope.nvim', 
+	dependencies = {
 		{ 'nvim-lua/plenary.nvim' },
-		{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },  -- For fzf-native
+		{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', build = 'make' },  -- For fzf-native
 		{ 'nvim-telescope/telescope-media-files.nvim' },  -- Media files
 		{ 'nvim-telescope/telescope-file-browser.nvim' },  -- File browser
-		{ 'nvim-telescope/telescope-frecency.nvim', requires = { 'tami5/sqlite.lua' } },  -- Add frecency here
+		{ 'nvim-telescope/telescope-frecency.nvim',
+		requires = { 'tami5/sqlite.lua' }
+		},  -- Add frecency here
 	},
 	config = function()
 		require('telescope').setup {
@@ -40,11 +43,10 @@ return {
 		}
 		-- Load Telescope Extensions
 		local telescope = require('telescope')
+		telescope.load_extension('noice')
 		telescope.load_extension('fzf')
 		telescope.load_extension('media_files')
 		telescope.load_extension('file_browser')
-		telescope.load_extension('noice')
 		telescope.load_extension('frecency')  -- Load frecency extension
 	end,
-}
-}
+}}

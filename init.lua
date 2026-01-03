@@ -1,4 +1,3 @@
-vim.lsp.handlers["textDocument/signatureHelp"] = nil
 --- Leader Key ----
 vim.g.mapleader = " "
 
@@ -19,35 +18,38 @@ vim.opt.smartindent = true
 -- Initialize Lazy.nvim
 local lazypath = vim.fn.stdpath("config") .. "/lua/lazy"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", lazypath })
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", lazypath })
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- Plugin Setup
 require('lazy').setup({
-	require("plugins.lualine"),
-	require("plugins.notify"),
-	require("plugins.lsp"),
-	require("plugins.utils"),
-	require("plugins.auto_completions"),
-	require("plugins.nerdtree"),
-	require("plugins.tagbar"),
-	require("plugins.cmdline"),
+--	NVIM LSP
+	require('plugins.lsp.lsp'),
+	require('plugins.nvim.completion-fw'),
+
+--	NVIM ENVIRONMENT PLUGINS
+	require('plugins.nvim.nerdtree'),
+	require('plugins.nvim.lualine'),
+	require('plugins.nvim.cmdline'),
+	require('plugins.nvim.notify'),
+	require('plugins.nvim.whichkey'),
+	require('plugins.nvim.utils'),
+	require('plugins.nvim.telescope'),
+	require('plugins.nvim.tagbar'),
+	require('plugins.nvim.toggleterm'),
+	require('plugins.nvim.neogit'),
+	require('plugins.nvim.diffview'),
 })
+-- Set UI color
+require('core.configs.colorscheme')
 
 -- Load Plugin Configurations
-require("configs.suggestions")
-require("configs.autocmds")
+require('core.configs.autocmds')
+require('core.configs.completion')
 
 -- Load mappings
-require('keymaps.mappings')
-
-
+require('core.keymaps.mappings')
 -- Load the CMake workspace module && Set up key mapping for wsm
-require("configs.wsm-cfg")
-
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function ()
-		vim.lsp.handlers['textDocument/signatureHelp'] = nil
-	end
-})
+require('core.custom.cmake-wsm')
+require('core.configs.wsm-cfg')

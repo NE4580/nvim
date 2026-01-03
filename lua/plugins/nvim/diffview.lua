@@ -9,7 +9,7 @@ return {
 				folder_open = "",
 				added = "",
 				modified = "✎",
-				removed = "",
+				removed = "",
 			},
 			layout = {
 				default = {

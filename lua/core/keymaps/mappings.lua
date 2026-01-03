@@ -50,7 +50,8 @@ vim.keymap.set('n', '<leader>sh', ':FSSplitBelow<CR>', { silent = true, desc = '
 ---------------------------------------------------------------------------------
 -- 10. TELESCOPE MAPPINGS
 vim.keymap.set('n', '<leader>te', ':Telescope file_browser<CR>', { desc = 'File Browser' })
-vim.keymap.set('n', '<leader>tn', ':Telescope frecency<CR>', { desc = 'Noice' })
+vim.keymap.set('n', '<leader>tn', ':Telescope noice<CR>', { desc = 'Noice' })
+vim.keymap.set('n', '<leader>tf', ':Telescope frecency<CR>', { desc = 'Noice' })
 vim.keymap.set('n', '<leader>th', ':Telescope help_tags<CR>', { desc = 'Help tags' })
 -- 										finding files
 vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { desc = 'Find files' })

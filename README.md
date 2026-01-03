@@ -86,3 +86,8 @@ You can typically install SQLite using your package manager:
 
     For Debian/Ubuntu:
         $ sudo apt install sqlite3
+## FZF setup on install
+``bash
+    cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
+    make 
+

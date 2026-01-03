@@ -3,15 +3,14 @@ return {
 	config = function()
 		require('neogit').setup({
 			autoRefresh = true,
-			kind = "floating",
 			integrations = {
 				diffview = true,
 				telescope = true,
 			},
+			kind = 'tab',
 			signs = {
-				section = { "▸", "▾" },
+				section = { "", "" },
 				item = { "●", "○" },
-				ntracked = { "★", "☆" },
 			},
 		})
 	end

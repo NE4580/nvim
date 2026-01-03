@@ -1,6 +1,3 @@
--- Set Colorscheme
-vim.cmd([[colorscheme catppuccin]])
-
 local cmp = require('cmp')
 -- Setup nvim-cmp
 cmp.setup({
@@ -33,10 +30,25 @@ cmp.setup({
 		['<C-e>'] = cmp.mapping.close(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
 	},
-	sources = { { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' }, { name = 'luasnip' }, { name = 'nvim_lua' }, },
+	sources = { 
+		{ name = 'nvim_lsp' },
+		{ name = 'buffer', keyword_lenghth = 3, max_item_count = 8 },
+		{ name = 'path' },
+		{ name = 'luasnip' },
+		{ name = 'nvim_lua' },
+	},
 	-- Customize the popup appearance
 	window = {
-		completion = { { completeopt = "menu, menuone, noinsert", },
+		completion = {
+			max_items = 8,
+			sorting = {
+				comparators = {
+					cmp.config.compare.offset,  -- Sort based on the offset in the current buffer
+					cmp.config.compare.exact,   -- Prioritize exact matches
+					cmp.config.compare.score,   -- Sort based on score (most relevant suggestions)
+				},
+				{ completeopt = "menu, menuone, noinsert", },
+			},
 			-- Border style (rounded corners)
 			border = { { '╭', 'FloatBorder' }, { '─', 'FloatBorder' }, { '╮', 'FloatBorder' }, { '│', 'FloatBorder' }, { '╯', 'FloatBorder' }, { '─', 'FloatBorder' }, { '╰', 'FloatBorder' }, { '│', 'FloatBorder' }, },
 			winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
@@ -58,9 +70,4 @@ cmp.setup({
 		cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' }, }}),
 		cmp.setup.cmdline('?', { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' }, }})
 	},
-})
-
-local neodev = require("neodev")
-neodev.setup({
-	signature_help = false,
 })
