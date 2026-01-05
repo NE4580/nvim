@@ -1,7 +1,8 @@
 ---------------------------------------------------------------------------------
 -- 1. FILE OPERATIONS
 vim.keymap.set('n', '<leader>wf', ':w<CR>', { desc = 'Save file' })
-vim.keymap.set('n', '<leader>we', ':wq<CR>', { desc = 'Write & Exit' })
+vim.keymap.set('n', '<leader>wq', ':wq<CR>', { desc = 'Write & Exit' })
+vim.keymap.set('n', '<leader>qq', ':q!<CR>', { desc = 'Quit Nvim' })
 ---------------------------------------------------------------------------------
 -- 2. BUFFER NAVIGATION
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Next Buffer' })
@@ -51,7 +52,7 @@ vim.keymap.set('n', '<leader>sh', ':FSSplitBelow<CR>', { silent = true, desc = '
 -- 10. TELESCOPE MAPPINGS
 vim.keymap.set('n', '<leader>te', ':Telescope file_browser<CR>', { desc = 'File Browser' })
 vim.keymap.set('n', '<leader>tn', ':Telescope noice<CR>', { desc = 'Noice' })
-vim.keymap.set('n', '<leader>tf', ':Telescope frecency<CR>', { desc = 'Noice' })
+vim.keymap.set('n', '<leader>tf', ':Telescope frecency<CR>', { desc = 'Frecency' })
 vim.keymap.set('n', '<leader>th', ':Telescope help_tags<CR>', { desc = 'Help tags' })
 -- 										finding files
 vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { desc = 'Find files' })
@@ -62,15 +63,15 @@ vim.keymap.set('n', '<leader>fs', ':Telescope frecency<CR>', { desc = 'Open Frec
 vim.keymap.set('n', '<leader>bb', ':Telescope buffers<CR>', { desc = 'List buffers' })
 ---------------------------------------------------------------------------------
 -- 11. GITHUB EXTENSION
-vim.api.nvim_set_keymap('n', '<leader><leader>g', ':Neogit<CR>', { desc = "Github CLI" })
+vim.api.nvim_set_keymap('n', '<leader><leader>n', ':Neogit<CR>', { desc = "Github CLI" })
 vim.api.nvim_set_keymap('n', '<C-c>', ':q<CR>', { noremap = true, silent = true })
 ---------------------------------------------------------------------------------
 -- 12. Open Diffview
-vim.api.nvim_set_keymap('n', '<leader>dv', ':DiffviewOpen<CR>', { desc = "DiffviewOpen"  })
-vim.api.nvim_set_keymap('n', '<leader>dc', ':DiffviewClose<CR>', { desc= "DiffviewClose" })
-vim.api.nvim_set_keymap('n', '<leader>dt', ':DiffviewToggleFiles<CR>', { desc= "DiffviewToggleFiles" })
-vim.api.nvim_set_keymap('n', '<leader>df', ':DiffviewFocusFiles<CR>', { desc= "DiffviewFocusFiles" })
-vim.api.nvim_set_keymap('n', '<leader>dh', ':DiffviewFileHistory<CR>', { desc= "DiffviewFileHistory" })
+vim.api.nvim_set_keymap('n', '<leader><leader>do', ':DiffviewOpen<CR>', { desc = "DiffviewOpen"  })
+vim.api.nvim_set_keymap('n', '<leader><leader>dc', ':DiffviewClose<CR>', { desc= "DiffviewClose" })
+vim.api.nvim_set_keymap('n', '<leader><leader>dt', ':DiffviewToggleFiles<CR>', { desc= "DiffviewToggleFiles" })
+vim.api.nvim_set_keymap('n', '<leader><leader>df', ':DiffviewFocusFiles<CR>', { desc= "DiffviewFocusFiles" })
+vim.api.nvim_set_keymap('n', '<leader><leader>dh', ':DiffviewFileHistory<CR>', { desc= "DiffviewFileHistory" })
 vim.api.nvim_set_keymap('n', '<C-c>', ':DiffviewClose<CR>', { noremap = true, silent = true })
 ---------------------------------------------------------------------------------
 -- 13. LSP configs

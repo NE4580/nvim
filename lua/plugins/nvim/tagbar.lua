@@ -1,5 +1,7 @@
-return{
-	{ "preservim/tagbar",cmd = "TagbarToggle",
+return
+{
+	{
+		"preservim/tagbar",cmd = "TagbarToggle",
 		init = function()
 			vim.g.tagbar_position = 'right'
 			vim.g.tagbar_width = 30

@@ -1,8 +1,18 @@
-return 
+return
 {
   { 'williamboman/mason.nvim', run = ':MasonUpdate',-- Automatically update after installation
   config = function()
-    require('mason').setup() --initialize Mason
+    require('mason').setup({
+      ensure_installed = {
+				'lua_ls',
+				'clangd',
+				'pyright',
+				'bashls',
+				'html',
+				'cssls',
+				'codelldb',
+			}
+		}) --initialize Mason
   end
   },
 
@@ -10,7 +20,6 @@ return
   config = function()
     require('mason-lspconfig').setup {
       automatic_enable = true,
-      ensure_installed = { 'lua_ls', 'clangd', 'pyright', 'bashls', 'html', 'cssls' }
     }
   end
   },

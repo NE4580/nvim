@@ -416,7 +416,12 @@ end
 -- Setup function for configuration
 function M.setup(user_config)
   M.config = vim.tbl_deep_extend("force", M.config, user_config or {})
-  notify("CMake workspace manager loaded", "info")
+	local filetype = vim.bo.filetype
+
+	-- Check if is a c/cpp file
+	if filetype == 'c' or filetype == 'cpp' then
+		notify("CMake workspace manager loaded", "info")
+	end
 end
 
 return M

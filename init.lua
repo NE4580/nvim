@@ -1,3 +1,12 @@
+---- Unmap LSP default keybindings for all sessions
+vim.api.nvim_del_keymap('n', 'gra')  -- Normal mode
+vim.api.nvim_del_keymap('n', 'gri')  -- Normal mode
+vim.api.nvim_del_keymap('n', 'grn')  -- Normal mode
+vim.api.nvim_del_keymap('n', 'grr')  -- Normal mode
+vim.api.nvim_del_keymap('n', 'grt')  -- Normal mode
+vim.api.nvim_del_keymap('n', 'gO')   -- Normal mode
+vim.api.nvim_del_keymap('v', 'gra')  -- Visual mode
+
 --- Leader Key ----
 vim.g.mapleader = " "
 
@@ -25,8 +34,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugin Setup
 require('lazy').setup({
 --	NVIM LSP
-	require('plugins.lsp.lsp'),
-	require('plugins.nvim.completion-fw'),
+	require('plugins.lsp.backend'),
+	require('plugins.nvim.completion'),
 
 --	NVIM ENVIRONMENT PLUGINS
 	require('plugins.nvim.nerdtree'),
@@ -40,7 +49,15 @@ require('lazy').setup({
 	require('plugins.nvim.toggleterm'),
 	require('plugins.nvim.neogit'),
 	require('plugins.nvim.diffview'),
+
+	--DAP PROTOCOL
+	require('plugins.nvim.nvim-dap'),
 })
+
+-- LSP SERVER SETUP
+require('core.configs.lsp-globals')
+require('lspEnabler')
+
 -- Set UI color
 require('core.configs.colorscheme')
 
@@ -50,6 +67,10 @@ require('core.configs.completion')
 
 -- Load mappings
 require('core.keymaps.mappings')
+
 -- Load the CMake workspace module && Set up key mapping for wsm
 require('core.custom.cmake-wsm')
 require('core.configs.wsm-cfg')
+
+-- Set up nvim-dap for C/C++
+require('core.configs.dap-config')
