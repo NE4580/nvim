@@ -6,7 +6,7 @@ return
 		keys =
 		{
 			{
-				"<leader>bc", function ()
+				"<leader>bf", function ()
 					require('conform').format({ async = true, lsp_fallback = true })
 				end,
 				mode = { 'n', 'v'}, desc = 'Conform Format Code/Selection',
