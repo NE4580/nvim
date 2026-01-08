@@ -334,8 +334,8 @@ local function run_cmake()
     end
 
     -- Create symlink
-    vim.fn.system(string.format("ln -sf %s %s", 
-      vim.fn.shellescape(compile_commands_src), 
+    vim.fn.system(string.format("ln -sf %s %s",
+      vim.fn.shellescape(compile_commands_src),
       vim.fn.shellescape(compile_commands_dst)))
 
     notify("Created compile_commands.json symlink", "info")
@@ -406,22 +406,16 @@ Build commands:
     M.config.default_build_dir,
     M.config.default_build_dir
   )
-
   success_msg(summary)
-
   -- Optional: Open the CMakeLists.txt for review
-  vim.cmd("edit CMakeLists.txt")
+  --vim.cmd("edit CMakeLists.txt")
 end
 
 -- Setup function for configuration
 function M.setup(user_config)
-  M.config = vim.tbl_deep_extend("force", M.config, user_config or {})
-	local filetype = vim.bo.filetype
+	M.config = vim.tbl_deep_extend("force", M.config, user_config or {})
 
-	-- Check if is a c/cpp file
-	if filetype == 'c' or filetype == 'cpp' then
-		notify("CMake workspace manager loaded", "info")
-	end
+	--notify("CMake Workspace Manager Loaded", "info")
 end
 
 return M

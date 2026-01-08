@@ -10,6 +10,7 @@
 ### 1. File Operations
 - **`<leader>wf`**: Save file
 - **`<leader>we`**: Write & Exit
+- **`<leader>qq`**: quit
 
 ### 2. Buffer Navigation
 - **`<leader>bn`**: Next Buffer
@@ -18,29 +19,25 @@
 ### 3. Indentation
 - **`<leader>ff`**: Indent entire file
 
-### 4. Terminal
-- **`<F5>`**: Toggle terminal
-
-### 5. `Protodef`
+### 4. `Protodef`
 - **`<leader>,PP`**: Generate prototypes
 - **`<leader>,PN`**: Generate prototypes (no namespace)
 
-### 6. `Tagbar`
+### 5. `Tagbar`
 - **`<leader>sl`**: Toggle Tagbar
 
-### 7. Auto-Pairs Toggle
+### 6. Auto-Pairs Toggle
 - **`<F8>`**: Toggle auto-pairs
 
-### 8.`NERDTree`Mappings
+### 7.`NERDTree`Mappings
 - **`<leader>n`**: Toggle file explorer
-- **`<leader>N`**: Reveal current file
 - **`<leader>R`**: Refresh explorer
 
-### 9. `Fswitch`Mappings
-- **`<leader>ss`**: Switch header/source
-- **`<leader>sh`**: Switch header/source (split)
+### 8. `Fswitch`Mappings
+- **`<leader>fs`**: Switch header/source
+- **`<leader>fh`**: Switch header/source (split)
 
-### 10. Telescope Mappings
+### 9. Telescope Mappings
 - **`<leader>te`**: File Browser
 - **`<leader>tn`**: Noice
 - **`<leader>tf`**: Frecency
@@ -48,21 +45,21 @@
 - **`<leader>ff`**: Find files
 - **`<leader>fl`**: Live grep
 - **`<leader>fm`**: Browse media files
-- **`<leader>fs`**: Open Frecency View
+- **`<leader>fq`**: Open Frecency View
 - **`<leader>bb`**: List buffers
 
-### 11. GitHub Extension
-- **`<leader><leader>g`**: GitHub CLI
+### 10. GitHub Extension
+- **`<leader><leader>n`**: GitHub CLI
 
-### 12. Open Diffview
-- **`<leader>dv`**: Open Diffview
-- **`<leader>dc`**: Close Diffview
-- **`<leader>dt`**: Toggle Diffview files
-- **`<leader>df`**: Focus on Diffview files
-- **`<leader>dh`**: Diffview file history
+### 11. Open Diffview
+- **`<leader><leader>dv`**: Open Diffview
+- **`<leader><leader>dc`**: Close Diffview
+- **`<leader><leader>dt`**: Toggle Diffview files
+- **`<leader><leader>df`**: Focus on Diffview files
+- **`<leader><leader>dh`**: Diffview file history
 
-### 13. LSP Mapping
-- **`<leader>rn`**: Rename symbol
+### 12. LSP Mapping
+- **`<leader>rs`**: Rename symbol
 - **`<leader>gd`**: Jump to definition
 - **`<leader>gr`**: Show symbol reference
 - **`<leader>ca`**: Code action

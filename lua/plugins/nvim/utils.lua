@@ -1,5 +1,6 @@
 return
 {
+	{ 'nvim-mini/mini.icons', version = false },
 	{ 'catppuccin/nvim', as = 'catppuccin' },
 
 	{
@@ -16,11 +17,7 @@ return
 		end,
 	},
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		opts = { indent = { char = "┆" } }
-	},
+	-- INDENTATION HANDLED BY SNACKS
 
 	{
 		"derekwyatt/vim-fswitch",

@@ -1,4 +1,4 @@
-return 
+return
 {
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', -- Automatically update parsers during installation
   config = function()

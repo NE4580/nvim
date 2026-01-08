@@ -36,12 +36,14 @@ require('lazy').setup({
 --	NVIM LSP
 	require('plugins.lsp.backend'),
 	require('plugins.nvim.completion'),
+	require('plugins.lsp.format'),
 
 --	NVIM ENVIRONMENT PLUGINS
 	require('plugins.nvim.nerdtree'),
 	require('plugins.nvim.lualine'),
-	require('plugins.nvim.cmdline'),
-	require('plugins.nvim.notify'),
+  require('plugins.nvim.cmdline'),
+
+	-- require('plugins.nvim.notify'),
 	require('plugins.nvim.whichkey'),
 	require('plugins.nvim.utils'),
 	require('plugins.nvim.telescope'),
@@ -52,6 +54,9 @@ require('lazy').setup({
 
 	--DAP PROTOCOL
 	require('plugins.nvim.nvim-dap'),
+
+	--SNACKS
+	require('plugins.nvim.snacks')
 })
 
 -- LSP SERVER SETUP

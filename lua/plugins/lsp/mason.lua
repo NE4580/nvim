@@ -1,16 +1,18 @@
 return
 {
-  { 'williamboman/mason.nvim', run = ':MasonUpdate',-- Automatically update after installation
+  { 'williamboman/mason.nvim', event = 'VeryLazy', run = ':MasonUpdate',-- Automatically update after installation
   config = function()
     require('mason').setup({
       ensure_installed = {
 				'lua_ls',
 				'clangd',
+				'omnisharp',
 				'pyright',
 				'bashls',
 				'html',
 				'cssls',
 				'codelldb',
+				'clang-format'
 			}
 		}) --initialize Mason
   end

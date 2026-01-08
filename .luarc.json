@@ -1,1 +1,6 @@
-{ "diagnostics.globals": ["vim"] }
+{ "diagnostics.globals": ["vim"],
+    "diagnostics.disable": [
+        "missing-fields",
+        "redundant-parameter",
+        "undefined-field"
+    ] }
