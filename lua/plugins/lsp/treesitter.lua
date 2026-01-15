@@ -5,7 +5,8 @@ return
     require('nvim-treesitter.config').setup {
       ensure_installed = {"maintained", "markdown", "vimdoc" }, -- Install all maintained parsers
       highlight = { enable = true, }, -- Enable highlighting
-      autopairs = { enable = true, } -- Enable automatic pairs for parentheses, etc.
+      autopairs = { enable = true, }, -- Enable automatic pairs for parentheses, etc.
+			indent = { enable = true, },
     }
   end
   }

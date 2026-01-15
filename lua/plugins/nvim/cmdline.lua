@@ -1,20 +1,17 @@
-return
-{
-  {
-		'folke/noice.nvim', event = 'VeryLazy',
+return {
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
 		opts = {
-			lsp =
-			{
-				progress = { enabled = true }
+			lsp = {
+				progress = { enabled = true },
 			},
-			messages =
-			{
+			messages = {
 				enabled = true,
 				view = "notify",
-				format = "default"
+				format = "default",
 			},
 		},
-		dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify', },
-	}
+		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+	},
 }
-

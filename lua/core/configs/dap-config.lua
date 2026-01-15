@@ -48,6 +48,15 @@ dap.listeners.after['event_initialized']['dap_config'] = function () dapui.open(
 dap.listeners.after['event_terminated']["dapui_config"] = function() dapui.close() end
 dap.listeners.after['event_exited']["dapui_config"] = function() dapui.close() end
 
+
+dap.listeners.after.event_exited["dapui_auto_close"] = function()
+  dap.terminate()
+end
+
+dap.listeners.after.event_terminated["dapui_auto_close"] = function()
+  dap.terminate()
+end
+
 dapui.setup({
 	controls =
 	{

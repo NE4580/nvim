@@ -4,15 +4,6 @@ return {
 	filetypes = { "html", "htm", "handlebars", "blade", "vue", "svelte" },
 	root_markers = { "package.json", ".git", "index.html", "vite.config.js" },
 
-	handlers = {
-		vim.lsp.diagnostic.on_publish_diagnostics, {
-			virtual_text = false,
-			signs = false,
-			underline = false,
-			update_in_insert = false,
-		}
-	},
-
 	init_options = {
 		-- Configuration for embedded languages
 		embeddedLanguages = { css = true, javascript = true },
@@ -22,6 +13,8 @@ return {
 		provideFormatter = true,
 	},
 
+	handlers = {},
+
 	-- Optional: HTML-specific settings
 	settings = {
 		html = {
@@ -29,17 +22,12 @@ return {
 			autoCreateQuotes = true,
 			format = {
 				enable = true,
-				wrapLineLength = 120,
+				wrapLineLength = 128,
 				templating = false,
 				wrapAttributes = "auto",
 			},
-			suggest = {
-				html5 = true,
-			},
-			hover = {
-				documentation = true,
-				references = true,
-			},
+			suggest = { html5 = true },
+			hover = { documentation = true, references = true },
 		},
 		css = {},
 		javascript = {},

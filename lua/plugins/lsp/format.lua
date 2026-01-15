@@ -17,6 +17,11 @@ return
 			{
 				cpp = { "clang-format" },
 				c = { "clang-format" },
+				lua = { "stylua" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				python = { "black" },
+				html = { "prettier" },
 			},
 			format_on_save =
 			{

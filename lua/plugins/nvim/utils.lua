@@ -1,7 +1,6 @@
-return
-{
-	{ 'nvim-mini/mini.icons', version = false },
-	{ 'catppuccin/nvim', as = 'catppuccin' },
+return {
+	{ "nvim-mini/mini.icons", version = false },
+	{ "catppuccin/nvim", as = "catppuccin" },
 
 	{
 		"derekwyatt/vim-protodef",
@@ -11,9 +10,15 @@ return
 	},
 
 	{
-		"windwp/nvim-autopairs", event = "InsertEnter",
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
 		config = function()
-			require("nvim-autopairs").setup({ map_cr = false })
+			require("nvim-autopairs").setup({
+				map_cr = true,
+				check_ts = true,
+				enable_check_bracket_line = true,
+				enable_moveright = true,
+			})
 		end,
 	},
 
@@ -23,8 +28,8 @@ return
 		"derekwyatt/vim-fswitch",
 		ft = { "c", "cpp", "h", "hpp" },
 		config = function()
-			vim.g.fswitchlocs = 'reg:/include/src/,reg:/src/include/, rel:.'
-			vim.g.fswitch_extensions = 'h,cpp,c,cc,hpp'
+			vim.g.fswitchlocs = "reg:/include/src/,reg:/src/include/, rel:."
+			vim.g.fswitch_extensions = "h,cpp,c,cc,hpp"
 		end,
 	},
 }
