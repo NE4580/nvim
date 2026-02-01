@@ -1,69 +1,68 @@
 -- Set up C++ debugging with cpptools
-local dap = require('dap')
-dap.adapters.codelldb =
-{
-	type = 'server',
+local dap = require("dap")
+dap.adapters.codelldb = {
+	type = "server",
 	port = 13000,
-	executable =
-	{
-		command = '~/.local/share/nvim/mason/bin/codelldb', -- Ensure this is in your PATH, as Mason installs this tool
-		args = { '--port', '13000' },
-	}
+	executable = {
+		command = "~/.local/share/nvim/mason/bin/codelldb", -- Ensure this is in your PATH, as Mason installs this tool
+		args = { "--port", "13000" },
+	},
 }
 
-dap.configurations.cpp =
-{
+dap.configurations.cpp = {
 	{
-		name = 'Launch',
-		type = 'codelldb',
-		request = 'launch',
+		name = "Launch",
+		type = "codelldb",
+		request = "launch",
 		program = vim.fn.getcwd() .. "/a.out",
 		args = {},
 		stopAtEntry = false,
-		cwd = '${workspaceFolder}',
+		cwd = "${workspaceFolder}",
 		environment = {},
 		externalConsole = false,
-		MIMode = 'gdb', -- Can also use 'lldb' or 'cppdbg'
-		miDebuggerPath = '/usr/bin/gdb', -- Make sure gdb is installed
-		setupCommands =
-		{
+		MIMode = "gdb", -- Can also use 'lldb' or 'cppdbg'
+		miDebuggerPath = "/usr/bin/gdb", -- Make sure gdb is installed
+		setupCommands = {
 			{
-				text = '-enable-pretty-printing',
-				description = 'Enable pretty printing',
+				text = "-enable-pretty-printing",
+				description = "Enable pretty printing",
 				ignoreFailures = false,
 			},
 			{
 				text = "-gdb-set logging off",
-				description = "Disable logging in GDB"
-			}
+				description = "Disable logging in GDB",
+			},
 		},
-		sourceFileMap = { ['/usr/src'] = '${workspaceFolder}' },
+		sourceFileMap = { ["/usr/src"] = "${workspaceFolder}" },
 	},
 }
 
-local dapui = require('dapui')
+local dapui = require("dapui")
 
-dap.listeners.after['event_initialized']['dap_config'] = function () dapui.open() end
+dap.listeners.after["event_initialized"]["dap_config"] = function()
+	dapui.open()
+end
 -- Close dap-ui when the session is terminated or exited
-dap.listeners.after['event_terminated']["dapui_config"] = function() dapui.close() end
-dap.listeners.after['event_exited']["dapui_config"] = function() dapui.close() end
-
+dap.listeners.after["event_terminated"]["dapui_config"] = function()
+	dapui.close()
+end
+dap.listeners.after["event_exited"]["dapui_config"] = function()
+	dapui.close()
+end
 
 dap.listeners.after.event_exited["dapui_auto_close"] = function()
-  dap.terminate()
+	dap.terminate()
 end
 
 dap.listeners.after.event_terminated["dapui_auto_close"] = function()
-  dap.terminate()
+	dap.terminate()
 end
 
 dapui.setup({
-	controls =
-	{
+	controls = {
 		element = "repl",
 		enabled = true,
-		icons =
-		{
+		icons = {
 			disconnect = "",
 			pause = "",
 			play = "",
@@ -72,52 +71,48 @@ dapui.setup({
 			step_into = "",
 			step_out = "",
 			step_over = "",
-			terminate = ""
-		}
+			terminate = "",
+		},
 	},
 	element_mappings = {},
 	expand_lines = true,
-	floating =
-	{
+	floating = {
 		border = "rounded",
-		mappings = { close = { "q", "<Esc>" } }
+		mappings = { close = { "q", "<Esc>" } },
 	},
 	force_buffers = true,
-	icons =
-	{
-		collapsed = "",        -- Icon for collapsed items
-		expanded = "",         -- Icon for expanded items
-		current_frame = "→"     -- Icon for the current frame (different from collapsed)
+	icons = {
+		collapsed = "", -- Icon for collapsed items
+		expanded = "", -- Icon for expanded items
+		current_frame = "→", -- Icon for the current frame (different from collapsed)
 	},
-	layouts =
-	{
+	layouts = {
 		{
-			elements =
-			{
-				{ id = "watches", size = 0.25 },
-				{ id = "breakpoints", size = 0.25 },
-				{ id = "stacks", size = 0.25 },
-				{ id = "scopes", size = 0.25 },
+			elements = {
+				{ id = "watches", size = 0.35 },
+				{ id = "breakpoints", size = 0.35 },
+				{ id = "stacks", size = 0.35 },
+				{ id = "scopes", size = 0.35 },
 			},
-			position = "left", size = 40
+			position = "left",
+			size = 40,
 		},
 		{
-			elements =
-			{
+			elements = {
 				{ id = "console", size = 0.6 },
 				{ id = "repl", size = 0.4 },
 			},
-			position = "bottom", size = 12
+			position = "bottom",
+			size = 12,
 		},
 	},
-	mappings =
-	{
+	mappings = {
 		edit = "e",
 		expand = { "<CR>", "<2-LeftMouse>" },
 		open = "o",
 		remove = "d",
 		repl = "r",
-		toggle = "t"
+		toggle = "t",
 	},
-	render = { indent = 1, max_value_lines = 100 }
+	render = { indent = 1, max_value_lines = 100 },
 })

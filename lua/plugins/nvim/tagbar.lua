@@ -4,7 +4,7 @@ return {
 		cmd = "TagbarToggle",
 		init = function()
 			vim.g.tagbar_position = "right"
-			vim.g.tagbar_width = 30
+			vim.g.tagbar_width = 35
 			vim.g.tagbar_autofocus = 1
 			vim.g.tagbar_autosort = 0
 			vim.g.tagbar_autoshowtag = 1

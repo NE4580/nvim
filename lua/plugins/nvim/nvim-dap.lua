@@ -35,7 +35,7 @@ return {
 					desc = "Edit watch Expression at Index",
 				},
 				{
-					"<Leader>dwt",
+					"<Leader>dww",
 					":lua require'dapui'.elements.watches.toggle_expand(tonumber(vim.fn.input('Toggle Watch @ index: ')))<CR>",
 					desc = "Toggle watch Expression",
 				},

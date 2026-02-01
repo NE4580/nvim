@@ -1,5 +1,23 @@
 -- Require the icons module
 local devicons = require("nvim-web-devicons")
+
+-- Set the foldmethod to 'expr' and use treesitter for folding
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()" -- Use tree-sitter folding
+vim.o.foldlevelstart = 99 -- Show all folds initially
+
+-- Move current line up
+vim.api.nvim_set_keymap("n", "<A-k>", ":m-2<CR>==", { noremap = true, silent = true })
+
+-- Move current line down
+vim.api.nvim_set_keymap("n", "<A-j>", ":m+1<CR>==", { noremap = true, silent = true })
+
+-- Move selected lines up
+vim.api.nvim_set_keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
+-- Move selected lines down
+vim.api.nvim_set_keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+
 --------------------------------------------------------------------------------------------------------------
 -- Notify when file is Saved
 vim.api.nvim_create_autocmd("BufWritePost", {

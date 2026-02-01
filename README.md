@@ -40,7 +40,7 @@
 ### 9. Telescope Mappings
 - **`<leader>te`**: File Browser
 - **`<leader>tn`**: Noice
-- **`<leader>tf`**: Frecency
+- **`<leader>tq`**: Frecency
 - **`<leader>th`**: Help tags
 - **`<leader>ff`**: Find files
 - **`<leader>fl`**: Live grep
@@ -88,4 +88,3 @@ You can typically install SQLite using your package manager:
 ``bash
     cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
     make 
-

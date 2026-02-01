@@ -25,6 +25,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
 vim.opt.smartindent = true
+vim.g.tagbar_sort = 0
 
 -- Initialize Lazy.nvim
 local lazypath = vim.fn.stdpath("config") .. "/lua/lazy"
