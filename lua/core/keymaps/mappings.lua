@@ -3,6 +3,7 @@
 vim.keymap.set("n", "<leader>wf", ":w<CR>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", { desc = "Write & Exit" })
 vim.keymap.set("n", "<leader>qq", ":q!<CR>", { desc = "Quit Nvim" })
+vim.keymap.set("n", "<leader>qa", ":qa!<CR>", { desc = "Quit All" })
 ---------------------------------------------------------------------------------
 -- 2. BUFFER NAVIGATION
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next Buffer" })
