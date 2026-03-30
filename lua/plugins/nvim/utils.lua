@@ -1,7 +1,6 @@
 return {
 	{ "nvim-mini/mini.icons", version = false },
 	{ "catppuccin/nvim", as = "catppuccin" },
-
 	{
 		"derekwyatt/vim-protodef",
 		config = function()

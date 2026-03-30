@@ -66,12 +66,12 @@ require("lazy").setup({
 
 -- LSP SERVER SETUP
 require("core.configs.lsp-globals")
-require("lspEnabler")
+--require("lspEnabler")
 
 ---- Set UI color
 require("core.configs.colorscheme")
 
----- Load Plugin Configurations
+------ Load Plugin Configurations
 require("core.configs.autocmds")
 require("core.configs.completion")
 

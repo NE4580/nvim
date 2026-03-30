@@ -1,11 +1,6 @@
 -- Require the icons module
 local devicons = require("nvim-web-devicons")
 
--- Set the foldmethod to 'expr' and use treesitter for folding
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()" -- Use tree-sitter folding
-vim.o.foldlevelstart = 99 -- Show all folds initially
-
 -- Move current line up
 vim.api.nvim_set_keymap("n", "<A-k>", ":m-2<CR>==", { noremap = true, silent = true })
 
