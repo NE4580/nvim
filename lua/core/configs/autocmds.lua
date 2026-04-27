@@ -91,5 +91,27 @@ function Start_omnisharp()
 		end,
 	})
 end
+
+vim.api.nvim_create_augroup("remember_folds", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWinLeave", {
+	group = "remember_folds",
+	pattern = "*",
+	callback = function()
+		if vim.bo.buftype == "" then
+			vim.cmd("silent! mkview")
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	group = "remember_folds",
+	pattern = "*",
+	callback = function()
+		if vim.bo.buftype == "" then
+			vim.cmd("silent! loadview")
+		end
+	end,
+})
 --------------------------------------------------------------------------------------------------------------
 vim.opt.updatetime = 1000 --delay in ms
