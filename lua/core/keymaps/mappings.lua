@@ -37,15 +37,11 @@ local toggle_autopairs = function()
 end
 vim.keymap.set({ "i", "n" }, "<F8>", toggle_autopairs, { desc = "Toggle auto-pairs" })
 ---------------------------------------------------------------------------------
--- 7. NERD TREE MAPPINGS
-vim.keymap.set("n", "<leader>n", ":NERDTreeToggle<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>R", ":NERDTreeRefresh<CR>", { silent = true, desc = "NERDTree Explorer Refresh" })
----------------------------------------------------------------------------------
--- 9. FSWITCH MAPPINGS
+-- 7. FSWITCH MAPPINGS
 vim.keymap.set("n", "<leader>fs", ":FSHere<CR>", { silent = true, desc = "Switch header/source" })
 vim.keymap.set("n", "<leader>fh", ":FSSplitBelow<CR>", { silent = true, desc = "Switch header/source (split)" })
 ---------------------------------------------------------------------------------
--- 9. TELESCOPE MAPPINGS
+-- 8. TELESCOPE MAPPINGS
 vim.keymap.set("n", "<leader>te", ":Telescope file_browser<CR>", { desc = "File Browser" })
 vim.keymap.set("n", "<leader>tn", ":Telescope noice<CR>", { desc = "Noice" })
 vim.keymap.set("n", "<leader>th", ":Telescope help_tags<CR>", { desc = "Help tags" })
@@ -57,11 +53,11 @@ vim.keymap.set("n", "<leader>fq", ":Telescope frecency<CR>", { desc = "Open Frec
 -- 										buffer navigation
 vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>", { desc = "List buffers" })
 ---------------------------------------------------------------------------------
--- 10. GITHUB EXTENSION
+-- 9. GITHUB EXTENSION
 vim.api.nvim_set_keymap("n", "<leader><leader>n", ":Neogit<CR>", { desc = "Github CLI" })
 vim.api.nvim_set_keymap("n", "<C-c>", ":q<CR>", { noremap = true, silent = true })
 ---------------------------------------------------------------------------------
--- 12. Open Diffview
+-- 10. Open Diffview
 vim.api.nvim_set_keymap("n", "<leader><leader>do", ":DiffviewOpen<CR>", { desc = "DiffviewOpen" })
 vim.api.nvim_set_keymap("n", "<leader><leader>dc", ":DiffviewClose<CR>", { desc = "DiffviewClose" })
 vim.api.nvim_set_keymap("n", "<leader><leader>dt", ":DiffviewToggleFiles<CR>", { desc = "DiffviewToggleFiles" })
@@ -69,10 +65,10 @@ vim.api.nvim_set_keymap("n", "<leader><leader>df", ":DiffviewFocusFiles<CR>", { 
 vim.api.nvim_set_keymap("n", "<leader><leader>dh", ":DiffviewFileHistory<CR>", { desc = "DiffviewFileHistory" })
 vim.api.nvim_set_keymap("n", "<C-c>", ":DiffviewClose<CR>", { noremap = true, silent = true })
 ---------------------------------------------------------------------------------
--- 12. LSP configs
+-- 11. LSP configs
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>rs",
+	"<leader>cs",
 	"<cmd>lua vim.lsp.buf.rename()<CR>",
 	{ noremap = true, silent = true, desc = "Rename symbol" }
 )

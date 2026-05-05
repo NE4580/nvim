@@ -44,7 +44,6 @@ require("lazy").setup({
 	require("plugins.lsp.format"),
 
 	--	NVIM ENVIRONMENT PLUGINS
-	require("plugins.nvim.nerdtree"),
 	require("plugins.nvim.lualine"),
 	require("plugins.nvim.cmdline"),
 
