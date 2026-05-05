@@ -29,15 +29,11 @@
 ### 6. Auto-Pairs Toggle
 - **`<F8>`**: Toggle auto-pairs
 
-### 7.`NERDTree`Mappings
-- **`<leader>n`**: Toggle file explorer
-- **`<leader>R`**: Refresh explorer
-
-### 8. `Fswitch`Mappings
+### 7. `Fswitch`Mappings
 - **`<leader>fs`**: Switch header/source
 - **`<leader>fh`**: Switch header/source (split)
 
-### 9. Telescope Mappings
+### 8. Telescope Mappings
 - **`<leader>te`**: File Browser
 - **`<leader>tn`**: Noice
 - **`<leader>tq`**: Frecency
@@ -48,23 +44,23 @@
 - **`<leader>fq`**: Open Frecency View
 - **`<leader>bb`**: List buffers
 
-### 10. GitHub Extension
+### 9. GitHub Extension
 - **`<leader><leader>n`**: GitHub CLI
 
-### 11. Open Diffview
+### 10. Open Diffview
 - **`<leader><leader>dv`**: Open Diffview
 - **`<leader><leader>dc`**: Close Diffview
 - **`<leader><leader>dt`**: Toggle Diffview files
 - **`<leader><leader>df`**: Focus on Diffview files
 - **`<leader><leader>dh`**: Diffview file history
 
-### 12. LSP Mapping
+### 11. LSP Mapping
 - **`<leader>rs`**: Rename symbol
 - **`<leader>gd`**: Jump to definition
 - **`<leader>gr`**: Show symbol reference
 - **`<leader>ca`**: Code action
 
-### 13. Extra Mapping
+### 12. Extra Mapping
 - **`<leader>cw`**: CMake custom workspace setup script
 
 ## INSTALLATION GUIDE for DEBIAN-BASED DISTROS
