@@ -21,14 +21,37 @@ return {
 		end,
 	},
 
-	-- INDENTATION HANDLED BY SNACKS
-
 	{
 		"derekwyatt/vim-fswitch",
 		ft = { "c", "cpp", "h", "hpp" },
 		config = function()
 			vim.g.fswitchlocs = "reg:/include/src/,reg:/src/include/, rel:."
 			vim.g.fswitch_extensions = "h,cpp,c,cc,hpp"
+		end,
+	},
+	{
+		"mbbill/undotree",
+
+		keys = {
+			{
+				"<leader><leader>h",
+				function()
+					vim.cmd.UndotreeToggle()
+				end,
+				desc = "Toggle UndoTree",
+			},
+		},
+
+		config = function()
+			-- optional settings
+			vim.g.undotree_WindowLayout = 2
+			vim.g.undotree_SplitWidth = 35
+			vim.g.undotree_SetFocusWhenToggle = 1
+			vim.g.undotree_DiffAutoOpen = 1
+			vim.g.undotree_DiffpanelHeight = 10
+			vim.g.undotree_HighlightChangedText = 1
+			vim.g.undotree_HighlightChangedWithSign = 1
+			vim.g.undotree_ShortIndicators = 1
 		end,
 	},
 }

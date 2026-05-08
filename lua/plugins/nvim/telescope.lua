@@ -6,7 +6,20 @@ return {
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make", build = "make" }, -- For fzf-native
 			{ "nvim-telescope/telescope-media-files.nvim" }, -- Media files
 			{ "nvim-telescope/telescope-file-browser.nvim" }, -- File browser
-			{ "nvim-telescope/telescope-frecency.nvim", requires = { "tami5/sqlite.lua" } }, -- Add frecency here
+			{
+				"nvim-telescope/telescope-frecency.nvim",
+				dependencies = { "nvim-telescope/telescope.nvim" },
+			},
+			{
+				"debugloop/telescope-undo.nvim",
+				dependencies = { "nvim-telescope/telescope.nvim" },
+				keys = {
+					{ "<leader><leader>fh", "<cmd>Telescope undo<CR>", desc = "Find Undo History" },
+				},
+				config = function()
+					require("telescope").load_extension("undo")
+				end,
+			},
 		},
 		config = function()
 			require("telescope").setup({

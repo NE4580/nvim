@@ -84,3 +84,6 @@ vim.api.nvim_set_keymap(
 	"<cmd>lua vim.lsp.buf.code_action()<CR>",
 	{ noremap = true, silent = true, desc = "Code Actions" }
 )
+
+--- Extras
+vim.api.nvim_set_keymap("n", "<leader>h", ":UndotreeToggle<CR>", { desc = "Undo Tree" })
