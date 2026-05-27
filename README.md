@@ -36,12 +36,12 @@
 ### 8. Telescope Mappings
 - **`<leader>te`**: File Browser
 - **`<leader>tn`**: Noice
-- **`<leader>tq`**: Frecency
+<!-- - **`<leader>tq`**: Frecency -->
 - **`<leader>th`**: Help tags
 - **`<leader>ff`**: Find files
 - **`<leader>fl`**: Live grep
 - **`<leader>fm`**: Browse media files
-- **`<leader>fq`**: Open Frecency View
+<!-- - **`<leader>fq`**: Open Frecency View -->
 - **`<leader>bb`**: List buffers
 
 ### 9. GitHub Extension
@@ -73,7 +73,6 @@
  in a neovim cmd
     `:TSInstall vimdoc`
     `:TSInstall markdown`
-    `:MasonInstall harper-ls`
 
 Since `frecency` requires SQLite to keep track of usage statistics, you `need to` install SQLite first. Make sure you have it installed on your system.
 You can typically install SQLite using your package manager:

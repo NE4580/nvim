@@ -6,10 +6,10 @@ return {
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make", build = "make" }, -- For fzf-native
 			{ "nvim-telescope/telescope-media-files.nvim" }, -- Media files
 			{ "nvim-telescope/telescope-file-browser.nvim" }, -- File browser
-			{
-				"nvim-telescope/telescope-frecency.nvim",
-				dependencies = { "nvim-telescope/telescope.nvim" },
-			},
+			-- {
+			-- 	"nvim-telescope/telescope-frecency.nvim",
+			-- 	dependencies = { "nvim-telescope/telescope.nvim" },
+			-- },
 			{
 				"debugloop/telescope-undo.nvim",
 				dependencies = { "nvim-telescope/telescope.nvim" },
@@ -56,7 +56,7 @@ return {
 			telescope.load_extension("fzf")
 			telescope.load_extension("media_files")
 			telescope.load_extension("file_browser")
-			telescope.load_extension("frecency") -- Load frecency extension
+			-- telescope.load_extension("frecency") -- Load frecency extension
 		end,
 	},
 }

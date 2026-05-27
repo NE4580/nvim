@@ -7,6 +7,7 @@ return {
 		"--suggest-missing-includes",
 		"--cross-file-rename", -- Better rename across files
 		"--completion-style=detailed",
+		"--include-cleaner-stdlib",
 		"--header-insertion=iwyu", -- Don't auto-insert headers
 		"--header-insertion-decorators", -- Provide details on why header is included
 	},

@@ -49,7 +49,7 @@ vim.keymap.set("n", "<leader>th", ":Telescope help_tags<CR>", { desc = "Help tag
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" })
 vim.keymap.set("n", "<leader>fl", ":Telescope live_grep<CR>", { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fm", ":Telescope media_files<CR>", { desc = "Browse media files" })
-vim.keymap.set("n", "<leader>fq", ":Telescope frecency<CR>", { desc = "Open Frecency View" })
+-- vim.keymap.set("n", "<leader>fq", ":Telescope frecency<CR>", { desc = "Open Frecency View" })
 -- 										buffer navigation
 vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>", { desc = "List buffers" })
 ---------------------------------------------------------------------------------
