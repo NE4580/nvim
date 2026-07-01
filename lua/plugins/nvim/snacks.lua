@@ -8,7 +8,9 @@ return {
 		toggle = {}, -- Use Snacks defaults
 		terminal = { win = { style = "terminal" } },
 		bigfile = { enabled = true },
-		dashboard = { enabled = true },
+		dashboard = {
+			enabled = true,
+		},
 		explorer = { enabled = true, replace_netrw = true, trash = true, picker = "explorer" },
 		indent = { enabled = true },
 		input = { enabled = true },
@@ -21,7 +23,7 @@ return {
 		words = { enabled = true },
 		styles = {
 			notification = {
-				-- wo = { wrap = true } -- Wrap notifications
+				wo = { wrap = true }, -- Wrap notifications
 			},
 		},
 		zen = {
@@ -334,7 +336,7 @@ return {
 			desc = "Keymaps",
 		},
 		{
-			"<leader>sl",
+			"<leader>sL",
 			function()
 				Snacks.picker.loclist()
 			end,
@@ -514,13 +516,6 @@ return {
 				Snacks.notifier.show_history()
 			end,
 			desc = "Notification History",
-		},
-		{
-			"<leader>bd",
-			function()
-				Snacks.bufdelete()
-			end,
-			desc = "Delete Buffer",
 		},
 		{
 			"<leader>cR",

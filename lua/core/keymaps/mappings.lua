@@ -1,7 +1,39 @@
+-- Jump to the context location (where the context bar is showing)
+vim.keymap.set("n", "[c", function()
+	require("treesitter-context").go_to_context()
+end, { silent = true, desc = "Jump to context" })
+
+-- Jump back to where you were (after jumping to context)
+vim.keymap.set("n", "]c", function()
+	vim.cmd("normal! ''") -- Jump back to previous position
+end, { silent = true, desc = "Jump back from context" })
+
+-- Tab management keymaps
+vim.keymap.set("n", "<leader>tN", ":tabnew<CR>", { noremap = true, silent = true, desc = "New tab" })
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { noremap = true, silent = true, desc = "Close tab" })
+vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { noremap = true, silent = true, desc = "Close other tabs" })
+vim.keymap.set("n", "<leader>tm", ":tabmove<CR>", { noremap = true, silent = true, desc = "Move tab" })
+
+-- Navigate tabs with Ctrl+h/l (or any keys you prefer)
+vim.keymap.set("n", "<C-h>", "gT", { noremap = true, silent = true, desc = "Previous tab" })
+vim.keymap.set("n", "<C-l>", "gt", { noremap = true, silent = true, desc = "Next tab" })
+
+-- Go to specific tab with Alt+number
+vim.keymap.set("n", "<A-1>", "1gt", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-2>", "2gt", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-3>", "3gt", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-4>", "4gt", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-5>", "5gt", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-6>", "6gt", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-7>", "7gt", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-8>", "8gt", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-9>", "9gt", { noremap = true, silent = true })
 ---------------------------------------------------------------------------------
+
 -- 1. FILE OPERATIONS
 vim.keymap.set("n", "<leader>wf", ":w<CR>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", { desc = "Write & Exit" })
+vim.keymap.set("n", "<leader>wa", ":wa<CR>", { desc = "Write All" })
 vim.keymap.set("n", "<leader>qq", ":q!<CR>", { desc = "Quit Nvim" })
 vim.keymap.set("n", "<leader>qa", ":qa!<CR>", { desc = "Quit All" })
 ---------------------------------------------------------------------------------
