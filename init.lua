@@ -55,6 +55,7 @@ require("lazy").setup({
 	require("plugins.nvim.toggleterm"),
 	require("plugins.nvim.neogit"),
 	require("plugins.nvim.diffview"),
+	require("plugins.lsp.m_rust"),
 
 	--DAP PROTOCOL
 	require("plugins.nvim.nvim-dap"),

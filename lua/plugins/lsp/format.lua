@@ -1,33 +1,32 @@
-return
-{
+return {
 	{
-		"stevearc/conform.nvim", event = 'VeryLazy', -- load before saveing
-		cmd = 'ConformInfo',
-		keys =
-		{
+		"stevearc/conform.nvim",
+		event = "VeryLazy", -- load before saveing
+		cmd = "ConformInfo",
+		keys = {
 			{
-				"<leader>bf", function ()
-					require('conform').format({ async = true, lsp_fallback = true })
+				"<leader>bf",
+				function()
+					require("conform").format({ async = true, lsp_fallback = true })
 				end,
-				mode = { 'n', 'v'}, desc = 'Conform Format Code/Selection',
+				mode = { "n", "v" },
+				desc = "Conform Format Code/Selection",
 			},
-	},
+		},
 		opts = {
-			formatters_by_ft =
-			{
+			formatters_by_ft = {
 				cpp = { "clang-format" },
 				c = { "clang-format" },
 				lua = { "stylua" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
-				python = { "black" },
+				python = { "ruff_format", "ruff_organize_imports" },
 				html = { "prettier" },
 			},
-			format_on_save =
-			{
+			format_on_save = {
 				timeout = 500,
 				lsp_fallback = true,
 			},
 		},
-	}
+	},
 }

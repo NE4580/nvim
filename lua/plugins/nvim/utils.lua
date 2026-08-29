@@ -31,7 +31,6 @@ return {
 	},
 	{
 		"mbbill/undotree",
-
 		keys = {
 			{
 				"<leader><leader>h",
@@ -45,10 +44,10 @@ return {
 		config = function()
 			-- optional settings
 			vim.g.undotree_WindowLayout = 2
-			vim.g.undotree_SplitWidth = 35
+			vim.g.undotree_SplitWidth = 30
 			vim.g.undotree_SetFocusWhenToggle = 1
 			vim.g.undotree_DiffAutoOpen = 1
-			vim.g.undotree_DiffpanelHeight = 10
+			vim.g.undotree_DiffpanelHeight = 15
 			vim.g.undotree_HighlightChangedText = 1
 			vim.g.undotree_HighlightChangedWithSign = 1
 			vim.g.undotree_ShortIndicators = 1
@@ -95,12 +94,12 @@ return {
 		opts = {
 			enable = true,
 			mode = "cursor",
-			max_lines = 5,
+			max_lines = 1,
 			line_numbers = true,
 			trim_scope = "outer",
 
 			-- Make it more visible
-			multiline_threshold = 2,
+			multiline_threshold = 1,
 			separator = "_",
 			zindex = 20,
 		},

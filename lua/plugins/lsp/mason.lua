@@ -19,6 +19,7 @@ return {
 					"stylua",
 					"prettier",
 					"black",
+					"rust-analyzer",
 				},
 			}) --initialize Mason
 		end,
