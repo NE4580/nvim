@@ -13,7 +13,7 @@ return {
 				float_opts = {
 					border = "rounded", --double
 					winblend = 1,
-					width = 75,
+					width = 80,
 					size = 32,
 				},
 			})

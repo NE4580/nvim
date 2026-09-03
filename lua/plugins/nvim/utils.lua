@@ -58,14 +58,9 @@ return {
 	{
 		"sphamba/smear-cursor.nvim",
 		opts = {
-			-- Animate between neighbor lines
-			smear_between_neighbor_lines = true,
-
-			-- Also animate bigger jumps (like search results)
-			smear_between_long_jumps = true,
-
-			-- Animate when moving in insert mode
-			smear_insert_mode = true,
+			smear_between_neighbor_lines = true, -- Animate between neighbor lines
+			smear_between_long_jumps = true, -- Also animate bigger jumps (like search results)
+			smear_insert_mode = true, -- Animate when moving in insert mode
 
 			-- Animation feel: lower stiffness = more "floaty", higher = snappier
 			stiffness = 0.25, -- Default: 0.3
@@ -95,13 +90,13 @@ return {
 		opts = {
 			enable = true,
 			mode = "cursor",
-			max_lines = 1,
+			max_lines = 3,
 			line_numbers = true,
 			trim_scope = "outer",
 
 			-- Make it more visible
 			multiline_threshold = 1,
-			separator = "_",
+			separator = "▔",
 			zindex = 20,
 		},
 	},

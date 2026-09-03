@@ -55,7 +55,7 @@ return {
 			enabled = true,
 			toggles = {
 				dim = true,
-				git_signs = false,
+				git_signs = true,
 				diagnostics = true,
 				inlay_hints = true,
 				line_number = true,
@@ -74,13 +74,13 @@ return {
 			end,
 			desc = "Smart Find Files",
 		},
-		{
-			"<leader>,",
-			function()
-				Snacks.picker.buffers()
-			end,
-			desc = "Buffers",
-		},
+		-- {
+		-- 	"<leader>,",
+		-- 	function()
+		-- 		Snacks.picker.buffers()
+		-- 	end,
+		-- 	desc = "Buffers",
+		-- },
 		{
 			"<leader>/",
 			function()
@@ -196,7 +196,7 @@ return {
 			desc = "Git Stash",
 		},
 		{
-			"<leader>gd",
+			"<leader>gc",
 			function()
 				Snacks.picker.git_diff()
 			end,
@@ -291,13 +291,6 @@ return {
 			desc = "Autocmds",
 		},
 		{
-			"<leader>sb",
-			function()
-				Snacks.picker.lines()
-			end,
-			desc = "Buffer Lines",
-		},
-		{
 			"<leader>sc",
 			function()
 				Snacks.picker.command_history()
@@ -339,13 +332,13 @@ return {
 			end,
 			desc = "Highlights",
 		},
-		{
-			"<leader>si",
-			function()
-				Snacks.picker.icons()
-			end,
-			desc = "Icons",
-		},
+		-- {
+		-- 	"<leader>si",
+		-- 	function()
+		-- 		Snacks.picker.icons()
+		-- 	end,
+		-- 	desc = "Icons",
+		-- },
 		{
 			"<leader>sj",
 			function()
@@ -585,22 +578,22 @@ return {
 			end,
 			desc = "which_key_ignore",
 		},
-		{
-			"]]",
-			function()
-				Snacks.words.jump(vim.v.count1)
-			end,
-			desc = "Next Reference",
-			mode = { "n", "t" },
-		},
-		{
-			"[[",
-			function()
-				Snacks.words.jump(-vim.v.count1)
-			end,
-			desc = "Prev Reference",
-			mode = { "n", "t" },
-		},
+		-- {
+		-- 	"]]",
+		-- 	function()
+		-- 		Snacks.words.jump(vim.v.count1)
+		-- 	end,
+		-- 	desc = "Next Reference",
+		-- 	mode = { "n", "t" },
+		-- },
+		-- {
+		-- 	"[[",
+		-- 	function()
+		-- 		Snacks.words.jump(-vim.v.count1)
+		-- 	end,
+		-- 	desc = "Prev Reference",
+		-- 	mode = { "n", "t" },
+		-- },
 		{
 			"<leader>N",
 			desc = "Neovim News",
@@ -624,22 +617,22 @@ return {
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",
 			callback = function()
-				-- Setup some globals for debugging (lazy-loaded)
-				_G.dd = function(...)
-					Snacks.debug.inspect(...)
-				end
-				_G.bt = function()
-					Snacks.debug.backtrace()
-				end
-
-				-- Override print to use snacks for `:=` command
-				if vim.fn.has("nvim-0.11") == 1 then
-					vim._print = function(_, ...)
-						dd(...)
-					end
-				else
-					vim.print = _G.dd
-				end
+				-- -- Setup some globals for debugging (lazy-loaded)
+				-- _G.dd = function(...)
+				-- 	Snacks.debug.inspect(...)
+				-- end
+				-- _G.bt = function()
+				-- 	Snacks.debug.backtrace()
+				-- end
+				--
+				-- -- Override print to use snacks for `:=` command
+				-- if vim.fn.has("nvim-0.11") == 1 then
+				-- 	vim._print = function(_, ...)
+				-- 		dd(...)
+				-- 	end
+				-- else
+				-- 	vim.print = _G.dd
+				-- end
 
 				-- Create some toggle mappings
 				Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")

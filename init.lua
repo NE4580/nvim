@@ -18,9 +18,8 @@ vim.opt.showtabline = 2
 vim.opt.mouse = "a"
 vim.opt.termguicolors = true
 vim.opt.cul = true
-vim.opt.fillchars = {
-	eob = " ", -- replace ~ with " " at end of buffer markers
-}
+vim.opt.relativenumber = true
+vim.opt.fillchars = { eob = " " } -- replace ~ with " " at end of buffer markers
 
 ---- Indentation ----
 vim.opt.tabstop = 2

@@ -38,6 +38,7 @@ vim.keymap.set("n", "<leader>qq", ":q!<CR>", { desc = "Quit Nvim" })
 vim.keymap.set("n", "<leader>qa", ":qa!<CR>", { desc = "Quit All" })
 ---------------------------------------------------------------------------------
 -- 2. BUFFER NAVIGATION
+vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>", { desc = "List buffers" })
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous Buffer" })
 ---------------------------------------------------------------------------------
@@ -78,11 +79,9 @@ vim.keymap.set("n", "<leader>te", ":Telescope file_browser<CR>", { desc = "File 
 vim.keymap.set("n", "<leader>tn", ":Telescope noice<CR>", { desc = "Noice" })
 vim.keymap.set("n", "<leader>th", ":Telescope help_tags<CR>", { desc = "Help tags" })
 -- 										finding files
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" })
+-- vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" }) -- snacks implements
 vim.keymap.set("n", "<leader>fl", ":Telescope live_grep<CR>", { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fm", ":Telescope media_files<CR>", { desc = "Browse media files" })
--- 										buffer navigation
-vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>", { desc = "List buffers" })
 ---------------------------------------------------------------------------------
 -- 9. GITHUB EXTENSION
 vim.api.nvim_set_keymap("n", "<leader><leader>n", ":Neogit<CR>", { desc = "Github CLI" })
