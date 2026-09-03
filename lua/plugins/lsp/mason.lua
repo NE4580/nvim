@@ -30,7 +30,7 @@ return {
 		after = "mason.nvim", -- Load this after Mason
 		config = function()
 			require("mason-lspconfig").setup({
-				automatic_enable = true,
+				automatic_enable = false,
 			})
 		end,
 	},

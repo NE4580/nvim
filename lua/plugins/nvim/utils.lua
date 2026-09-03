@@ -1,6 +1,7 @@
 return {
 	{ "nvim-mini/mini.icons", version = false },
 	{ "catppuccin/nvim", as = "catppuccin" },
+	{ "xiyaowong/transparent.nvim" },
 	{
 		"derekwyatt/vim-protodef",
 		config = function()

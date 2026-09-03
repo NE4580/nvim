@@ -178,8 +178,73 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- Updatetime setting for better CursorHold responsiveness
 
 -- The default updatetime (4000ms) is too slow for diagnostic hover to feel responsive.
--- Lowering it to 300ms makes the float diagnostic appear more quickly while still
+-- Lowering it to 500ms makes the float diagnostic appear more quickly while still
 -- being conservative enough to avoid performance issues.
-vim.o.updatetime = 300
+vim.o.updatetime = 500
 
+-- ============================================================
+-- Search highlight timeout
+-- ============================================================
+local search_timeout = 2000 -- milliseconds
+local search_timer = nil
+
+local function hide_search_highlights()
+	vim.opt.hlsearch = false
+
+	if search_timer then
+		search_timer:stop()
+		search_timer = nil
+	end
+end
+
+local function show_search_highlights()
+	vim.opt.hlsearch = true
+
+	-- Reset the previous timer
+	if search_timer then
+		search_timer:stop()
+	end
+
+	search_timer = vim.defer_fn(function()
+		vim.opt.hlsearch = false
+		search_timer = nil
+	end, search_timeout)
+end
+
+-- ============================================================
+-- / and ?
+-- ============================================================
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+	callback = function()
+		if vim.v.event.cmdtype == "/" or vim.v.event.cmdtype == "?" then
+			show_search_highlights()
+		end
+	end,
+})
+
+-- ============================================================
+-- n and N
+-- ============================================================
+vim.keymap.set("n", "n", function()
+	local count = vim.v.count1
+
+	vim.cmd("normal! " .. count .. "n")
+
+	show_search_highlights()
+end)
+
+vim.keymap.set("n", "N", function()
+	local count = vim.v.count1
+
+	vim.cmd("normal! " .. count .. "N")
+
+	show_search_highlights()
+end)
+
+-- Clear search highlighting when entering/switching buffers
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+	callback = function()
+		hide_search_highlights()
+	end,
+})
 -- End of configuration

@@ -22,6 +22,7 @@ return {
 				typescript = { "prettier" },
 				python = { "ruff_format", "ruff_organize_imports" },
 				html = { "prettier" },
+				rust = { "rustfmt" },
 			},
 			format_on_save = {
 				timeout = 500,

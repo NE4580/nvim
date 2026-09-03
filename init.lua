@@ -6,7 +6,6 @@ vim.api.nvim_del_keymap("n", "grr") -- Normal mode
 vim.api.nvim_del_keymap("n", "grt") -- Normal mode
 vim.api.nvim_del_keymap("n", "gO") -- Normal mode
 vim.api.nvim_del_keymap("v", "gra") -- Visual mode
-
 vim.opt.clipboard = "unnamedplus"
 
 ----- Leader Key ----
@@ -19,6 +18,9 @@ vim.opt.showtabline = 2
 vim.opt.mouse = "a"
 vim.opt.termguicolors = true
 vim.opt.cul = true
+vim.opt.fillchars = {
+	eob = " ", -- replace ~ with " " at end of buffer markers
+}
 
 ---- Indentation ----
 vim.opt.tabstop = 2
@@ -37,7 +39,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugin Setup
 require("lazy").setup({
 
-	git = { timeout = 1200 },
+	git = { timeout = 1500 },
 	--	NVIM LSP
 	require("plugins.lsp.backend"),
 	require("plugins.nvim.completion"),
@@ -50,12 +52,13 @@ require("lazy").setup({
 	-- require('plugins.nvim.notify'),
 	require("plugins.nvim.whichkey"),
 	require("plugins.nvim.utils"),
+	require("plugins.nvim.bufferline"),
 	require("plugins.nvim.telescope"),
 	require("plugins.nvim.tagbar"),
 	require("plugins.nvim.toggleterm"),
 	require("plugins.nvim.neogit"),
 	require("plugins.nvim.diffview"),
-	require("plugins.lsp.m_rust"),
+	require("plugins.lsp.rustaceanvim"),
 
 	--DAP PROTOCOL
 	require("plugins.nvim.nvim-dap"),
@@ -64,9 +67,12 @@ require("lazy").setup({
 	require("plugins.nvim.snacks"),
 })
 
+-- Bufferline
+require("core.configs.bufferline")
+
 -- LSP SERVER SETUP
 require("core.configs.lsp-globals")
---require("lspEnabler")
+require("lspEnabler")
 
 ---- Set UI color
 require("core.configs.colorscheme")
@@ -84,3 +90,6 @@ require("core.configs.wsm-cfg")
 
 ---- Set up nvim-dap for C/C++
 require("core.configs.dap-config")
+
+---- transparency ----
+require("core.configs.transparent")

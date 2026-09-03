@@ -4,83 +4,90 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		priority = 1000,
 		config = function()
-			-- -- Custom mode colors/icons
-			-- local custom_theme = {
-			-- 	normal = { a = { fg = "#ffffff", bg = "#0078d4" } },
-			-- 	insert = { a = { fg = "#ffffff", bg = "#00a86b" } },
-			-- 	visual = { a = { fg = "#ffffff", bg = "#9b59b6" } },
-			-- 	replace = { a = { fg = "#ffffff", bg = "#e74c3c" } },
-			-- 	command = { a = { fg = "#ffffff", bg = "#f39c12" } },
-			-- }
+			-- Custom mode colors/icons
 
+			--------- bubbles_theme ------
+			-- stylua: ignore
+			local colors = {
+				blue   = '#80a0ff',
+				cyan   = '#79dac8',
+				black  = '#080808',
+				white  = '#c6c6c6',
+				red    = '#ff5189',
+				violet = '#d184e8',
+				grey   = '#303030',
+			}
+
+			local bubbles_theme = {
+				normal = {
+					a = { fg = colors.black, bg = colors.violet },
+					b = { fg = colors.white, bg = colors.grey },
+					c = { fg = colors.white },
+				},
+
+				insert = { a = { fg = colors.black, bg = colors.blue } },
+				visual = { a = { fg = colors.black, bg = colors.cyan } },
+				replace = { a = { fg = colors.black, bg = colors.red } },
+
+				inactive = {
+					a = { fg = colors.white, bg = colors.black },
+					b = { fg = colors.white, bg = colors.black },
+					c = { fg = colors.white },
+				},
+			}
 			require("lualine").setup({
 				options = {
-					theme = "auto", -- or custom_theme for custom colors
-					globalstatus = true,
+					theme = bubbles_theme,
+					component_separators = "",
+					section_separators = { left = "", right = "" },
 					disabled_filetypes = { statusline = { "dashboard", "alpha", "NvimTree" } },
-					-- Add component separators
-					component_separators = { left = "", right = "" },
-					section_separators = { left = "", right = "" },
-
-					-- Always show mode
-					always_divide_middle = true,
 				},
 				sections = {
 					lualine_a = {
 						{
 							"mode",
 							fmt = function(str)
-								return " " .. str:sub(1, 1):upper() .. str:sub(2)
+								local icons = {
+									["NORMAL"] = "○ ",
+									["INSERT"] = " ",
+									["VISUAL"] = "󰒉 ",
+									["V-LINE"] = "󰒉  ",
+									["V-BLOCK"] = "󰒉 ",
+									["COMMAND"] = "󰘳 ",
+									["REPLACE"] = "󰉵 ",
+									["SELECT"] = "󰩫 ",
+									["TERMINAL"] = " ",
+								}
+								return icons[str] .. str:sub(1, 1):upper() .. str:sub(2):lower()
 							end,
 						},
 					},
 					lualine_b = {
+						"filename",
+						"diagnostics",
 						"branch",
 						{
 							"diff",
-							symbols = { added = " ", modified = " ", removed = " " },
-						},
-						{
-							"diagnostics",
-							-- symbols = { error = " ", warn = " ", info = " ", hint = " " },
+							--	symbols = { added = " ", modified = " ", removed = " " },
 						},
 					},
-					lualine_c = {
-						{
-							"filename",
-							path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-							symbols = {
-								modified = " ●",
-								readonly = " ",
-								unnamed = " [No Name]",
-							},
-						},
-					},
-					lualine_x = { "fileformat", { "filetype", icon_only = true } },
-					lualine_y = { "progress" },
-					lualine_z = { { "location", padding = { left = 1, right = 1 } } },
-				},
-				-- Inactive sections (for when window loses focus)
-				inactive_sections = {
-					lualine_a = { "filename" },
-					lualine_b = {},
 					lualine_c = {},
-					lualine_x = { "location" },
-					lualine_y = {},
-					lualine_z = {},
+					lualine_x = { "lsp_status" },
+					lualine_y = { "filetype", "filesize", "progress", "fileformat" },
+					lualine_z = {
+						{ "location", separator = { right = "" }, left_padding = 2 },
+					},
 				},
-				-- Tabline (shown at top)
-				tabline = {
-					lualine_a = { { "buffers", show_filename_only = true } },
+				inactive_sections = {
+					lualine_a = {},
 					lualine_b = {},
 					lualine_c = {},
 					lualine_x = {},
-					lualine_y = {},
-					lualine_z = { { "tabs", tabs_color = { fg = "#ffffff" } } },
+					lualine_y = { "filetype" },
+					lualine_z = { "fileformat" },
 				},
-				-- Extensions for specific plugins
-				extensions = { "nvim-tree", "trouble", "lazy", "mason" },
 			})
+			----------------------------------
 		end,
 	},
 }
